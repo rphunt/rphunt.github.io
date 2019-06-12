@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Github pages test with webpack</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Github pages test with webpack</h1>
+
+	<p>
+		OK, so far I can have webpack output outside of the project folder, so that's cool.
+	</p>
+	<p>
+		I don't think I want to have nested git repos. So the project folder will have a different git repo than the actual github pages. So I can work on the /src code, commit it and bundle it, then commit and push the /dist to the github pages.
+	</p>
+	<p>
+		The editor only needs the project folder. But I'll need 2 terminals, one for each repo.
+	</p>
+
+	<pre>
+/rphunt.github.io (the distribution folder)
+..bundle.js
+..index.html
+..README.md
+
+/githubpages (the project folder)
+../src/index.js
+../src/index.html
+../src/index.scss
+	</pre>
+	<script type="text/javascript" src="bundle.js"></script>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
