@@ -4,7 +4,7 @@
   "description": "github pages project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -12,6 +12,7 @@
   },
   "author": "",
   "license": "ISC",
+  "homepage": "https://rphunt.github.io",
   "bugs": {
     "url": "https://github.com/rphunt/rphunt.github.io/issues"
   },
