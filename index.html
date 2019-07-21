@@ -11,7 +11,10 @@
 		OK, I have a project folder, with /src and /dist.
 	</p>
 	<p>
-		The project folder has a git repo, and /dist has a separate repo w/ a .gitignore that includes 'dist'. So the project folder will have a different github repo than the actual github pages. So I can work on the /src code, commit it and bundle it, then commit and push the /dist to the github pages separtely.
+		The project folder has a git repo and a /src folder. It also has a /dist folder that has its own git repo. The project folder's .gitignore includes /dist. So the project folder will have a different github repo than the actual github pages. 
+	</p>
+	<p>
+		So I can work on the /src code, webpack it, then commit and push it to its own repo, then commit and push the /dist to my github pages separately.
 	</p>
 	<p>
 		The editor only needs the project folder. But I'll need 2 terminals, one for each repo.
@@ -21,11 +24,11 @@
 	</p>
 
 	<pre>
-/rphunt.github.io (the distribution folder)
+/githubpages(the project folder to gitpages_src repo)
 --/dist/bundle.js
 --/dist/index.html
 --/dist/README.md
---/src/index.js
+--/src/index.js (the distribution folder to rphunt.github.io)
 --/src/index.html
 --/src/index.scss
 	</pre>
