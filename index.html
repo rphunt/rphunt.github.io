@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html class="fouc_bg">
 <head>
 	<title>Github pages test with webpack</title>
 	<meta charset="utf-8">
+
+	<style>
+		/* handle github FOUC */
+		.fouc_bg {
+			background-color: #ffffff;
+		}
+
+		.fouc_hide {
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+		.fouc_show {
+			opacity: 1;
+		}
+	</style>
+
 </head>
-<body>
+<body class="fouc_hide">
 	<h1>Github pages test with webpack</h1>
 
 	<p>
