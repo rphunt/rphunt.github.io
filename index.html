@@ -13,25 +13,10 @@
 		.fouc_hide {
 			opacity: 0;
 			transition: opacity 1s ease-in-out;
-			position: relative;
-		}
-
-		.fouc_hide::before {
-			content: 'loading...';
-			display: block;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-size: 2rem;	
 		}
 
 		.fouc_show {
 			opacity: 1;
-		}
-
-		.fouc_show::before {
-			display: none;
 		}
 	</style>
 
