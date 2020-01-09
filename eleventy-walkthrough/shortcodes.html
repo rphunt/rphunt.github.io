@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eleventy Walk Through - Intro</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="main">
+
+	<nav class="tableofcontents">
+		<h1><a href=".">Eleventy Walk Through</a></h1>
+		<ul>
+			<li><a href="intro.html">Intros to Eleventy and This Guide</a>
+				<ul>
+					<li><a href="intro.html#introeleventy">Intro to Eleventy</a></li>
+					<li><a href="intro.html#introguide">Intro to This Guide</a></li>
+				</ul>
+			</li>
+ 			<li><a href="start.html">Start</a></li>
+			<li><a href="local-server.html">Local Server</a>
+			</li>
+			<li><a href="basic-data-and-templating-using-liquid.html">Basic Data and Templating Using Liquid</a>
+				<ul>
+					<li><a href="basic-data-and-templating-using-liquid.html#whitespace">Whitespace (Line Breaks)</a></li>
+				</ul>
+			</li>
+			<li><a href="templates-and-external-markdown-files.html">Templates and External Markdown Files</a>
+				<ul>
+					<li><a href="templates-and-external-markdown-files.html#layouts">Layouts</a></li>
+					<li><a href="templates-and-external-markdown-files.html#folderstructure">Folder Structure</a></li>
+					<li><a href="templates-and-external-markdown-files.html#layoutsmarkdownfrontmatter">Layouts and Markdown With Front Matter</a></li>
+					<li><a href="templates-and-external-markdown-files.html#collections">Collections</a></li>
+					<li><a href="templates-and-external-markdown-files.html#linkingcollectionitem">Linking to a Collection Item</a></li>
+					<li><a href="templates-and-external-markdown-files.html#eleventydates">Eleventy and Date Values</a></li>
+				</ul>
+			</li>
+			<li><a href="partials-and-include.html">Partials and Include</a>
+				<ul>
+					<li><a href="partials-and-include.html#usinginclude">Using Include</a></li>
+					<li><a href="partials-and-include.html#frontmatterpartials">Using Front Matter With Partials</a></li>
+				</ul>
+			</li>
+			<li><a href="global-data-files.html">Global Data Files</a>
+				<ul>
+					<li><a href="global-data-files.html#globaldatainpage">Using Global Data in a Page</a></li>
+					<li><a href="global-data-files.html#globaldatasubfolder">Global Data in a Subfolder</a></li>
+					<li><a href="global-data-files.html#accessingnormaljsondata">Accessing normal JSON data</a></li>
+				</ul>
+			</li>
+			<li><a href="pagination.html">Pagination</a>
+				<ul>
+					<li><a href="pagination.html#basicpaginationjsonarray">Basic Pagination of JSON Array</a></li>
+					<li><a href="pagination.html#paginationjsonobject">Pagination of JSON object</a></li>
+					<li><a href="pagination.html#customizingpermalinks">Customizing the Permalinks</a></li>
+					<li><a href="pagination.html#pagenavigation">Page Navigation</a></li>
+				</ul>
+			</li>
+			<li><a href="template-languages.html">Eleventy and Template Languages</a>
+				<ul>
+					<li><a href="template-languages.html#fileextensions">File Extensions</a></li>
+					<li><a href="template-languages.html#nunjucksjavascript">Nunjucks and Javascript</a></li>
+				</ul>
+			</li>
+			<li><a href="custom-configuration.html">Custom Configuration</a>
+				<ul>
+					<li><a href="custom-configuration.html#targetpath">Target Path</a></li>
+					<li><a href="custom-configuration.html#sourcepath">Source Path</a></li>
+					<li><a href="custom-configuration.html#globaldatapath">Global Data Path</a></li>
+					<li><a href="custom-configuration.html#includespath">Includes Path</a></li>
+					<li><a href="custom-configuration.html#templateformats">Template Formats</a></li>
+				</ul>
+			</li>
+			<li><a href="filters.html">Filters</a>
+				<ul>
+					<li><a href="filters.html#filterseleventy">Filters in Eleventy</a></li>
+					<li><a href="filters.html#configobject">Eleventy Config Object</a></li>
+					<li><a href="filters.html#createfilter">Create a Filter</a></li>
+					<li><a href="filters.html#formatdate">Format a Date</a></li>
+				</ul>
+			</li>
+			<li><a href="shortcodes.html">Shortcodes</a>
+				<ul>
+					<li><a href="shortcodes.html#shortcodeseleventy">Shortcodes in Eleventy</a></li>
+					<li><a href="shortcodes.html#shortcode">Shortcode</a></li>
+					<li><a href="shortcodes.html#pairedshortcode">Paired Shortcode</a></li>
+				</ul>
+			</li>
+			<li><a href="gulp.html">Gulp with Eleventy as a Task</a>
+				<ul>
+					<li><a href="gulp.html#usinggulp">Using Gulp</a></li>
+					<li><a href="gulp.html#eleventyothergulptasks">Eleventy and other Gulp tasks</a></li>
+				</ul>
+			</li>
+
+			<li><a href="adding-collections-with-javascript.html">Adding Collections With JavaScript</a>
+				<ul>
+					<li><a href="adding-collections-with-javascript.html#collectioncrreation">Collection Creation</a></li>
+					<li><a href="adding-collections-with-javascript.html#collectioncrreation">Eleventy and other Gulp tasks</a></li>
+				</ul>
+			</li>
+
+
+
+		</ul>
+	</nav><!-- .toc end -->
+	<section class="content">
+		
+
+	<section>
+		<h2>Shortcodes</h2>
+		<article>
+			<h3 id="shortcodeseleventy">Shortcodes in Eleventy</h3>
+			<p>
+				<em>Shortcodes</em> have some similarities to filters, but can provide some extra flexibility. Filters allow piping a variable into a function, which then returns a modified form of that variable. Shortcodes are called with mutliple parameters in a very function-like manner. The idea then being that the variables are used to assemble content to be returned. A type of automated layout. There are also <em>Paired Shortcodes</em> which include <em>end</em> tags. Between the beginning and end tags there can be content which the shortcode can also process. That content can contain variables and shortcodes.
+			</p>
+		</article>
+		<article>
+			<h3 id="shortcode">Shortcode</h3>
+			<p>
+				Edit <span class="path">src/index.njk</span> to add some new front matter and a tag for a shortcode called <span class="tag">shorttest</span>. As can be seen, there is no pipe, and there are two variables being supplied :
+			</p>
+			<pre class="codeexample">
+---
+title: Birds
+subtitle: Eleventy subtitle
+greeting: Welcome
+
+birds:
+  - robin
+  - finch
+  - sparrow
+---
+{% include "_head.njk" %}
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+    &lt;h2&gt;{% shorttest subtitle, greeting %}&lt;/h2&gt;
+    &lt;ul&gt;
+        {% for bird in birds -%}
+        &lt;li&gt;{{ bird }}&lt;/li&gt;
+        {% endfor -%}
+    &lt;/ul&gt;
+{% include "_foot.njk %}
+			</pre class="codeexample">
+
+			<p>
+				Edit <span class="path">.eleventy.js</span> by adding the shortcode <span class="var">shorttest</span> after the filter <span class="var">decorate</span>. Note the function accepts two parameters. :
+			</p>
+			<pre class="codeexample">
+eleventyConfig.addShortcode("shorttest", function(subtitle, greeting){
+    return "===="+subtitle+", "+greeting+"====";
+});
+			</pre>
+			<p>
+				This should result in a new <span class="tag">&lt;H2&gt;</span>, containing the two values,  under the <span class="tag">&lt;H1&gt;</span> in <span class="path">dist/index.html</span> :
+
+			<pre class="codeexample">
+&lt;h1&gt;Eleventy Title from Data&lt;/h1&gt;
+&lt;h2&gt;====Eleventy subtitle, Welcome====&lt;/h2&gt;
+			</pre>
+		</article>
+
+		<article>
+			<h3 id="pairedshortcode">Paired Shortcode</h3>
+			<p>
+				Edit <span class="path">src/index.njk</span> again to add a tag for a paired shortcode called <span class="tag">pairedtest</span>. Note both the <span class="tag">{% pairedtest %}</span> and the <span class="tag">{% endpairedtest %}</span> tags, and note there is text between them :
+			</p>
+			<pre class="codeexample">
+---
+title: Eleventy Title from Data
+subtitle: Eleventy subtitle
+greeting: Welcome
+
+flowers:
+  - robin
+  - finch
+  - sparrow
+---
+{% include "_head.njk" %}
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+    &lt;h2&gt;{% shorttest subtitle, greeting %}&lt;/h2&gt;
+    {% pairedtest subtitle, greeting %}Paired Shortcode Content{% endpairedtest %}
+    &lt;ul&gt;
+        {% for flower in flowers -%}
+        &lt;li&gt;{{ flower }}&lt;/li&gt;
+        {% endfor -%}
+    &lt;/ul&gt;
+{% include "_foot.njk" %}
+			</pre class="codeexample">
+
+			<p>
+				Edit <span class="path">.eleventy.js</span> again by adding the paired shortcode <span class="var">pairedtest</span> after the shortcode <span class="var">shorttest</span>. Note the function accepts three parameters.  The first one is the content inside the paired shortcode tags.
+			</p>
+			<pre class="codeexample">
+eleventyConfig.addPairedShortcode("pairedtest", function(data, subtitle, greeting) {
+    return "&lt;h3&gt;"+subtitle+"&lt;/h3&gt;&lt;h4&gt;"+greeting+"&lt;/h4&gt;"+"&lt;p&gt;&lt;em&gt;"+data+"&lt;/em&gt;&lt;/p&gt;";
+});
+			</pre>
+			<p>
+
+				This should result in a new line starting with the fully assembled content, in <span class="path">dist/index.html</span> :
+			</p>
+			<pre class="codeexample">
+&lt;h1&gt;Eleventy Title from Data&lt;/h1&gt;
+&lt;h2&gt;====Eleventy subtitle, Welcome====&lt;/h2&gt;
+&lt;h3&gt;Eleventy subtitle&lt;/h3&gt;&lt;h4&gt;Welcome&lt;/h4&gt;&lt;p&gt;&lt;em&gt;Paired Shortcode Content&lt;em&gt;&lt;/p&gt;
+			</pre>
+
+		</article>
+
+	</section>
+	<nav class="next">
+		<a href="gulp.html">Gulp with Eleventy as a Task &gt;&gt;</a>
+	</nav>
+
+
+		<section class="references">
+			<article>
+				<h2>References</h2>
+				<ul>
+
+					<li><a href="https://www.11ty.io/docs/" target="_blank">Eleventy Documentation</a></li>
+
+					<li><a href="https://www.zachleat.com/web/eleventy-tutorial-level-1/" target="_blank">Making a
+					Simple Web Site with the Simplest Static Site Generator, Level 1</a></li>
+
+					<li><a href="https://www.filamentgroup.com/lab/build-a-blog/" target="_blank">Build your own Blog from Scratch using Eleventy</a></li>
+
+					<li><a href="https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/" target="_blank">Creating A Blog With Eleventy</a></li>
+
+					<li><a href="https://learnxinyminutes.com/docs/yaml/" target="_blank">Learn YAML in Y minutes</a></li>
+
+					<li><a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown Basic Syntax</a></li>
+
+					<li><a href="https://shopify.github.io/liquid/basics/introduction/" target="_blank">Liquid Syntax</a></li>
+
+					<li><a href="https://www.w3schools.com/whatis/whatis_json.asp" target="_blank">What is JSON?</a></li>
+
+
+				</ul>
+			</article>
+		</section>
+	</section><!-- .content end -->
+</div><!-- .main end -->
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eleventy Walk Through - Filters</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="main">
+
+	<nav class="tableofcontents">
+		<h1><a href=".">Eleventy Walk Through</a></h1>
+		<ul>
+			<li><a href="intro.html">Intros to Eleventy and This Guide</a>
+				<ul>
+					<li><a href="intro.html#introeleventy">Intro to Eleventy</a></li>
+					<li><a href="intro.html#introguide">Intro to This Guide</a></li>
+				</ul>
+			</li>
+ 			<li><a href="start.html">Start</a></li>
+			<li><a href="local-server.html">Local Server</a>
+			</li>
+			<li><a href="basic-data-and-templating-using-liquid.html">Basic Data and Templating Using Liquid</a>
+				<ul>
+					<li><a href="basic-data-and-templating-using-liquid.html#whitespace">Whitespace (Line Breaks)</a></li>
+				</ul>
+			</li>
+			<li><a href="templates-and-external-markdown-files.html">Templates and External Markdown Files</a>
+				<ul>
+					<li><a href="templates-and-external-markdown-files.html#layouts">Layouts</a></li>
+					<li><a href="templates-and-external-markdown-files.html#folderstructure">Folder Structure</a></li>
+					<li><a href="templates-and-external-markdown-files.html#layoutsmarkdownfrontmatter">Layouts and Markdown With Front Matter</a></li>
+					<li><a href="templates-and-external-markdown-files.html#collections">Collections</a></li>
+					<li><a href="templates-and-external-markdown-files.html#linkingcollectionitem">Linking to a Collection Item</a></li>
+					<li><a href="templates-and-external-markdown-files.html#eleventydates">Eleventy and Date Values</a></li>
+				</ul>
+			</li>
+			<li><a href="partials-and-include.html">Partials and Include</a>
+				<ul>
+					<li><a href="partials-and-include.html#usinginclude">Using Include</a></li>
+					<li><a href="partials-and-include.html#frontmatterpartials">Using Front Matter With Partials</a></li>
+				</ul>
+			</li>
+			<li><a href="global-data-files.html">Global Data Files</a>
+				<ul>
+					<li><a href="global-data-files.html#globaldatainpage">Using Global Data in a Page</a></li>
+					<li><a href="global-data-files.html#globaldatasubfolder">Global Data in a Subfolder</a></li>
+					<li><a href="global-data-files.html#accessingnormaljsondata">Accessing normal JSON data</a></li>
+				</ul>
+			</li>
+			<li><a href="pagination.html">Pagination</a>
+				<ul>
+					<li><a href="pagination.html#basicpaginationjsonarray">Basic Pagination of JSON Array</a></li>
+					<li><a href="pagination.html#paginationjsonobject">Pagination of JSON object</a></li>
+					<li><a href="pagination.html#customizingpermalinks">Customizing the Permalinks</a></li>
+					<li><a href="pagination.html#pagenavigation">Page Navigation</a></li>
+				</ul>
+			</li>
+			<li><a href="template-languages.html">Eleventy and Template Languages</a>
+				<ul>
+					<li><a href="template-languages.html#fileextensions">File Extensions</a></li>
+					<li><a href="template-languages.html#nunjucksjavascript">Nunjucks and Javascript</a></li>
+				</ul>
+			</li>
+			<li><a href="custom-configuration.html">Custom Configuration</a>
+				<ul>
+					<li><a href="custom-configuration.html#targetpath">Target Path</a></li>
+					<li><a href="custom-configuration.html#sourcepath">Source Path</a></li>
+					<li><a href="custom-configuration.html#globaldatapath">Global Data Path</a></li>
+					<li><a href="custom-configuration.html#includespath">Includes Path</a></li>
+					<li><a href="custom-configuration.html#templateformats">Template Formats</a></li>
+				</ul>
+			</li>
+			<li><a href="filters.html">Filters</a>
+				<ul>
+					<li><a href="filters.html#filterseleventy">Filters in Eleventy</a></li>
+					<li><a href="filters.html#configobject">Eleventy Config Object</a></li>
+					<li><a href="filters.html#createfilter">Create a Filter</a></li>
+					<li><a href="filters.html#formatdate">Format a Date</a></li>
+				</ul>
+			</li>
+			<li><a href="shortcodes.html">Shortcodes</a>
+				<ul>
+					<li><a href="shortcodes.html#shortcodeseleventy">Shortcodes in Eleventy</a></li>
+					<li><a href="shortcodes.html#shortcode">Shortcode</a></li>
+					<li><a href="shortcodes.html#pairedshortcode">Paired Shortcode</a></li>
+				</ul>
+			</li>
+			<li><a href="gulp.html">Gulp with Eleventy as a Task</a>
+				<ul>
+					<li><a href="gulp.html#usinggulp">Using Gulp</a></li>
+					<li><a href="gulp.html#eleventyothergulptasks">Eleventy and other Gulp tasks</a></li>
+				</ul>
+			</li>
+
+			<li><a href="adding-collections-with-javascript.html">Adding Collections With JavaScript</a>
+				<ul>
+					<li><a href="adding-collections-with-javascript.html#collectioncrreation">Collection Creation</a></li>
+					<li><a href="adding-collections-with-javascript.html#collectioncrreation">Eleventy and other Gulp tasks</a></li>
+				</ul>
+			</li>
+
+
+
+		</ul>
+	</nav><!-- .toc end -->
+	<section class="content">
+		
+
+	<section>
+		<h2>Filters</h2>
+		<article>
+			<h3 id="filterseleventy">Filters in Eleventy</h2>
+				<p>
+					Filters in Eleventy are JavaScript functions that accept content, modify it, then return it to be display in place of the original. They are added to the <span class="path">.eleventy.js</span> config file.
+				</p>
+				<p>
+					Some filters are built-in via the template languages, e.g. Liquid makes <span class="tag">url_encode</span> available. But Eleventy does lack certain formatting features that can be found in other templating platforms, date formatting for example. A JavaScript function can be added as a filter to provide that formatting.
+				</p>
+		</article>
+
+		<article>
+			<h3 id="configobject">Eleventy Config Object</h2>
+				<p>
+					To make Eleventy content available to the config file, the <span class="var">module.exports</span> must be changed into a function. It can then accept the Eleventy config object, in this manner :
+
+					<pre class="codeexample">
+module.exports = (function(eleventyConfig) {
+
+}
+					</pre>
+					But to keep the previously entered configuration values, they can be returned as an object :
+	
+					<pre class="codeexample">
+module.exports = (function(eleventyConfig) {
+
+    return {
+
+        dir: {
+            output: "dist",
+            input: "src",
+            data: "jsondata",
+            includes: "partials_layouts"
+        },
+
+        templateFormats: ["njk", "md", "css", "js"]
+    }; 
+
+});
+					</pre>
+				</p>
+		</article>
+
+		<article>
+			<h3 id="createfilter">Create a Filter</h3>
+			<p>
+				There is an Eleventy method <span class="var">addFilter</span> you can use. <span class="var">addFilter</span> is a <em>universal filter</em> and will work with <em>Liquid, Nunjucks, JavaScript,</em> and <em>Handlebars</em>. Eleventy also has specific methods for each of those languages.
+			</p>
+			<p>
+				Edit the config file to create a filter named <span class="var">decorate</span>. This will add asterixes to the start and end of the filtered content :
+
+					<pre class="codeexample">
+module.exports = (function(eleventyConfig) {
+
+    eleventyConfig.addFilter("decorate", function(text) {
+        return "***"+text+"***";
+    });
+
+    return {
+
+        dir: {
+            output: "dist",
+            input: "src",
+            data: "jsondata",
+            includes: "partials_layouts"
+        },
+
+        templateFormats: ["njk", "md", "css", "js"]
+    }; 
+
+});
+					</pre>
+			</p>
+			<p>
+				Edit the <span class="path">src/index.njk</span> file to use the filter (using a pipe <span class="tag">&lt;li&gt;{{ bird | decorate }}&lt;/li&gt;</span>) :
+
+				<pre class="codeexample">
+---
+title: Birds
+birds:
+  - robin
+  - finch
+  - sparrow
+---
+{% include &quot;_head.njk&quot; %}
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+
+    &lt;ul&gt;
+        {% for bird in birds %}
+        &lt;li&gt;{{ bird | decorate }}&lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+
+{% include &quot;_foot.njk&quot; %}				
+				</pre>
+				The <span class="path">dist/index.html</span> should now have asterixes in the list items.
+				<pre class="codeexample">
+&lt;ul&gt;
+    &lt;li&gt;***robin***&lt;/li&gt;
+    &lt;li&gt;***finch***&lt;/li&gt;
+    &lt;li&gt;***sparrow***&lt;/li&gt;
+&lt;/ul&gt;
+				</pre>
+			</p>
+
+
+		</article>
+
+		<article>
+			<h3 id="formatdate">Format a Date</h3>
+			<p>
+				Using Eleventy in the NPM ecosystem makes NodeJS modules available for use. There is a module called <em>Moment</em> which is very popular for formatting dates. However, because Eleventy renders dates to the local timezone, adjusting back to UTC might be desired. For that, <em>Moment-Timezone</em> can be used. First, install moment-timezone :
+
+					<pre class="codeexample">
+npm i -D moment-timezone
+					</pre>
+
+				Edit <span class="path">.eleventy,js</span> to require <em>moment-timezone</em> and add a filter <span class="var">dateformat</span> : 
+
+					<pre class="codeexample">
+var moment = require('moment-timezone');
+
+module.exports = (function(eleventyConfig) {
+
+    eleventyConfig.addFilter("decorate", function(text) {
+        return "***"+text+"***";
+    });
+
+    eleventyConfig.addFilter("dateformat", function(dateIn) {
+        return moment(dateIn).tz('GMT').format('YYYY MMMM DD, dddd, HH:MM:SS z');
+    });
+
+
+    return {
+
+        dir: {
+            output: "dist",
+            input: "src",
+            data: "jsondata",
+            includes: "partials_layouts"
+        },
+
+        templateFormats: ["njk", "md", "css", "js"]
+    }; 
+
+});
+					</pre>
+
+					More information on using Moment-Timezone can be found <a href="https://momentjs.com/timezone/docs/" target="_blank">in the Moment-Timezone official documentation</a>.
+			</p>
+
+			<p>
+				Edit <span class="path">src/postlist.njk</span> so that it includes <span class="tag">{{ post.data.date | dateformat }}</span> :
+
+				<pre class="codeexample">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Blog Posts&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul&gt;
+        {% for post in collections.post -%}
+        &lt;li&gt;&lt;a href="{{ post.url }}" &gt;{{ post.data.title }}, {{ post.data.date }}&lt;/a&gt;&lt;/li&gt;
+        {% endfor -%}
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+
+				The resulting <span class="path">dist/postlist/index.html</span> should now have these list items in a more readable format:
+
+				<pre class="codeexample">
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="/posts/post-01/"&gt;Blog Post 01, 2018 December 31, Monday, 19:12:00&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/post-02/"&gt;Blog Post 02, 2019 January 01, Tuesday, 19:01:00&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/posts/post-03/"&gt;Blog Post 03, 2019 January 02, Wednesday, 19:01:00&lt;/a&gt;&lt;/li&gt;
+				</pre>					
+
+			</p>
+
+
+		</article>
+
+			<p>
+				There is more information on filters. <a href="https://www.11ty.dev/docs/filters/" target="_blank">Check out the Eleventy documentation</a> for more details.
+			</p>
+
+	</section>
+	<nav class="next">
+		<a href="shortcodes.html">Shortcodes &gt;&gt;</a>
+	</nav>
+
+
+		<section class="references">
+			<article>
+				<h2>References</h2>
+				<ul>
+
+					<li><a href="https://www.11ty.io/docs/" target="_blank">Eleventy Documentation</a></li>
+
+					<li><a href="https://www.zachleat.com/web/eleventy-tutorial-level-1/" target="_blank">Making a
+					Simple Web Site with the Simplest Static Site Generator, Level 1</a></li>
+
+					<li><a href="https://www.filamentgroup.com/lab/build-a-blog/" target="_blank">Build your own Blog from Scratch using Eleventy</a></li>
+
+					<li><a href="https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/" target="_blank">Creating A Blog With Eleventy</a></li>
+
+					<li><a href="https://learnxinyminutes.com/docs/yaml/" target="_blank">Learn YAML in Y minutes</a></li>
+
+					<li><a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown Basic Syntax</a></li>
+
+					<li><a href="https://shopify.github.io/liquid/basics/introduction/" target="_blank">Liquid Syntax</a></li>
+
+					<li><a href="https://www.w3schools.com/whatis/whatis_json.asp" target="_blank">What is JSON?</a></li>
+
+
+				</ul>
+			</article>
+		</section>
+	</section><!-- .content end -->
+</div><!-- .main end -->
+</body>
+</html>
