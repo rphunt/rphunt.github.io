@@ -3,23 +3,6 @@
 <head>
 	<title>Github pages test with webpack</title>
 	<meta charset="utf-8">
-
-	<style>
-		/* handle github FOUC */
-		.fouc_bg {
-			background-color: #ffffff;
-		}
-
-		.fouc_hide {
-			opacity: 0;
-			transition: opacity 1s ease-in-out;
-		}
-
-		.fouc_show {
-			opacity: 1;
-		}
-	</style>
-
 </head>
 <body class="fouc_hide">
 	<h1>Github pages test with webpack</h1>
@@ -28,7 +11,7 @@
 		OK, I have a project folder, with /src and /dist.
 	</p>
 	<p>
-		The project folder has a git repo and a /src folder. It also has a /dist folder that has its own git repo. The project folder's .gitignore includes /dist. So the project folder will have a different github repo than the actual github pages. 
+		The project folder has a git repo and a /src folder. It also has a /dist folder that has its own git repo. The project folder's .gitignore includes /dist. So the project folder will have a different github repo than the actual github pages.
 	</p>
 	<p>
 		So I can work on the /src code, webpack it, then commit and push it to its own repo, then commit and push the /dist to my github pages separately.
