@@ -1,0 +1,1 @@
+"use strict";require("./index.scss"),window.onload=function(){document.querySelector("body").classList.add("fouc_show")};
