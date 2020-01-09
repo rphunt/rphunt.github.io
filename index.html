@@ -5,16 +5,16 @@
 	<meta charset="utf-8">
 </head>
 <body class="fouc_hide">
-	<h1>Github pages test with webpack</h1>
+	<h1>Github pages test with Gulp</h1>
 
 	<p>
-		OK, I have a project folder, with /src and /dist.
+		OK, I have a project folder, with /src and /public.
 	</p>
 	<p>
-		The project folder has a git repo and a /src folder. It also has a /dist folder that has its own git repo. The project folder's .gitignore includes /dist. So the project folder will have a different github repo than the actual github pages.
+		The project folder has a git repo and a /src folder. It also has a /public folder that has its own git repo. The project folder's .gitignore includes /public. So the project folder will have a different github repo than the actual github pages.
 	</p>
 	<p>
-		So I can work on the /src code, webpack it, then commit and push it to its own repo, then commit and push the /dist to my github pages separately.
+		So I can work on the /src code, send it through Gulp to transpile and minify and put in /public, then commit and push it to the &quotsrc&quot; repo, then commit and push the /public to my github pages separately.
 	</p>
 	<p>
 		The editor only needs the project folder. But I'll need 2 terminals, one for each repo.
@@ -22,15 +22,5 @@
 	<p>
 		'gh-pages' is cool, but that won't work for this as far as I can tell.
 	</p>
-
-	<pre>
-/githubpages(the project folder to gitpages_src repo)
---/dist/bundle.js
---/dist/index.html
---/dist/README.md
---/src/index.js (the distribution folder to rphunt.github.io)
---/src/index.html
---/src/index.scss
-	</pre>
 </body>
 </html>
