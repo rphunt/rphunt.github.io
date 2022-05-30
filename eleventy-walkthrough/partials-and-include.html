@@ -141,7 +141,7 @@
 		<section class="chapter">
 			<h3 id="usinginclude">Using Include</h3>
 			<p>
-				The tag <span class="tag">{% include %}</span> is how a partial is added to a page. By default, Eleventy looks for partials in the <span class="path">_includes</span> folder. For example, to include header HTML that is in the file <span class="path">_includes/_head.html</span>, the tag would be <span class="tag">{% include _head.html %}</span>. Note that it's common practice to start the filename of a partial with &quot;_&quot;.
+				The tag <span class="tag">{% include %}</span> is how a partial is added to a page. By default, Eleventy looks for partials in the <span class="path">_includes</span> folder. For example, to include header HTML that is in the file <span class="path">_includes/_head.html</span>, the tag would be <span class="tag">{% include `_head.html` %}</span>. Note that it's common practice to start the filename of a partial with &quot;_&quot;.
 			</p>
 			<p>
 				Create a file <span class="path">_includes/_head.html</span>
@@ -178,7 +178,7 @@ flowers:
   - finch
   - sparrow
 ---
-{% include _head.html %}
+{% include `_head.html` %}
     &lt;h1&gt;{{ title }}&lt;/h1&gt;
 
     &lt;ul&gt;
@@ -187,7 +187,7 @@ flowers:
         {% endfor %}
     &lt;/ul&gt;
 
-{% include _foot.html %}
+{% include `_foot.html` %}
 		 </pre class="codeexample">
 
 		 <p>
